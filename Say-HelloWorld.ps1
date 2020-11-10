@@ -1,2 +1,8 @@
+"------------"
 "Hello World!"
-
+"------------"
+"Your local time is $(Get-Date)"
+"You are $(whoami)"
+"Your machine's hostname is $($env:computername) "
+"Your IP is $((Get-NetIPAddress -AddressFamily ipv4 -PrefixOrigin DHCP).ipaddress)"
+"============"
