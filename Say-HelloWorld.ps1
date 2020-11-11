@@ -8,9 +8,9 @@ $OSplatform= [System.Environment]::OSVersion.Platform
 
 if ($OSplatform -eq "Win32NT")
 {
-    "Your IP address: $(([System.Net.Dns]::GetHostByName((hostname))).addresslist.ipaddresstostring)"
+    "Your IP addresses: $(([System.Net.Dns]::GetHostByName((hostname))).addresslist.ipaddresstostring)"
     "Your DNS domain names: $((Get-Wmiobject Win32_NetworkAdapterConfiguration |Where-Object dnsdomain -ne $null).dnsdomain)" 
-    "Local users of your machine: $((get-localuser |Where-Object enabled -eq $true).name)"
+    "Local users: $((get-localuser |Where-Object enabled -eq $true).name)"
 }else
    {
     "Your machine details: $(uname -a)"
