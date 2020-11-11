@@ -13,7 +13,7 @@ if ($OSplatform -eq "Win32NT")
     "Local users of your machine are: $((get-localuser |Where-Object enabled -eq $true).name)"
 }else
    {
-    Your distro details are: $(uname -a)""
+    "Your distro details are: $(uname -a)"
     "More details in progress... Stand by!"
    }
 
