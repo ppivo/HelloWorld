@@ -39,7 +39,7 @@ $os = gwmi win32_operatingsystem
         $localTime = Get-WmiObject -Class win32_localtime 
      
 
-$servertime = "* Server time: " + (Get-Date -Day $localTime.Day -Month $localTime.Month).ToString() + " | " + ($timezone.caption).Tostring() + ""
+$servertime = "* Local time: " + (Get-Date -Day $localTime.Day -Month $localTime.Month).ToString() + " | " + ($timezone.caption).Tostring() + ""
 $serverIP = "* Primary IP address: " + ((Gwmi Win32_NetworkAdapterConfiguration | where {$_.DefaultIPGateway -ne $null}).IPAddress | select -first 1)
 $BootTime = $OS.ConvertToDateTime($OS.LastBootUpTime)  
 $Uptime = ($OS.ConvertToDateTime($OS.LocalDateTime) - $boottime).ToString() 
