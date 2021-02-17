@@ -19,7 +19,7 @@ Get-wmiobject win32_service -Filter 'startmode = "auto" AND state != "running"' 
 
 Function CheckDiskSpace
 {
-get-wmiobject Win32_LogicalDisk -filter "drivetype=3" | select Name, VolumeName,@{Name="Free (%)";Expression={"{0,6:P0}" -f(($_.freespace/1gb) / ($_.size/1gb))}}, Description, @{Label="Size";Expression={"{0:n0} MB" -f ($_.Size/1mb)}}, @{Label="Free Space";Expression={"{0:n0} MB" -f ($_.FreeSpace/1mb)}} | FT -auto 
+get-wmiobject Win32_LogicalDisk -filter "drivetype=3" | select Name, VolumeName,@{Name="Free (%)";Expression={"{0,6:P0}" -f(($_.freespace/1gb) / ($_.size/1gb))}}, Description, @{Label="TotalSize";Expression={"{0:n0} MB" -f ($_.Size/1mb)}}, @{Label="FreeSpace";Expression={"{0:n0} MB" -f ($_.FreeSpace/1mb)}} | FT -auto 
 
 }
 
