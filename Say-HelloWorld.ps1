@@ -8,7 +8,7 @@ function Get-RamCPUconfig
 $size = (((Get-WmiObject -Class Win32_PhysicalMemory).capacity |Measure-Object -sum ).sum / 1GB).Tostring()
 $cores = (Get-WmiObject -Class Win32_Processor).NumberOfLogicalProcessors
 $sockets=$cores.count
-"* RAM Size: $size GB `t CPU Cores: " + $cores[0] + "`t CPU sockets: " + $sockets 
+"* RAM Size: $size GB `t CPU Cores: " + $cores + "`t CPU sockets: " + $sockets 
 
 } #get-ramcpuconfig
 		
